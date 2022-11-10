@@ -27,9 +27,9 @@ var quizQuestions = [
         answer: "b. 0"
     },
     {
-        question: "How do you write 'Hello World' in an alert?",
-        choices: ["a. alertBox(Hello World)", "b. alert", "c. promptAlert('Hello World'):", "d. showAlert"],
-        answer: "b. alert("
+        question: "Which operator is used to assign a value to a variable in JavaScript?",
+        choices: ["a. #", "b. =", "c. ^ ", "d. * "],
+        answer: "b. = "
     },
     {
         question: "How do you call a function called 'myFunction'?",
