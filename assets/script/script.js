@@ -9,6 +9,7 @@ var answerBtn1 = document.querySelector("#answer-btn1");
 var answerBtn2 = document.querySelector("#answer-btn2");
 var answerBtn3 = document.querySelector("#answer-btn3");
 var answerBtn4 = document.querySelector("#answer-btn4");
+var answerButtons = document.querySelector(.choices-button);
 
 var quizQuestions = [
     {
