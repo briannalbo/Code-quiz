@@ -3,7 +3,12 @@ firstCommit = "Coders";
 console.log(firstCommit + " welcome");
 
 var startBtn = document.querySelector("#start-button");
-
+var questionNumber = 0;
+var askQuestion = document.querySelector("#ask-question");
+var answerBtn1 = document.querySelector("#answer-btn1");
+var answerBtn2 = document.querySelector("#answer-btn2");
+var answerBtn3 = document.querySelector("#answer-btn3");
+var answerBtn4 = document.querySelector("#answer-btn4");
 
 var quizQuestions = [
     {
@@ -17,14 +22,14 @@ var quizQuestions = [
         answer: "d. Element ID"
     },
     {
-        question: "What is the first index in an array?"
+        question: "What is the first index in an array?",
         choices: ["a. 1", "b. 0", "c. -1", "d. 10"],
         answer: "b. 0"
     },
     {
         question: "How do you write 'Hello World' in an alert?",
-        choices: ["a. alertBox(Hello World)", "b. alert("Hello World");", "c. promptAlert('Hello World'):", "d. showAlert("Hello World")"],
-        answer: "b. alert("Hello World");"
+        choices: ["a. alertBox(Hello World)", "b. alert", "c. promptAlert('Hello World'):", "d. showAlert"],
+        answer: "b. alert("
     },
     {
         question: "How do you call a function called 'myFunction'?",
@@ -70,8 +75,20 @@ function remainingTime() {
 }, 1000);
 }
 
+function showQuestion(n) {
+    
+    askQuestion.textContent = quizQuestions[n].question;
+    answerBtn1.textContent = quizQuestions[n].choices[0];
+    answerBtn2.textContent = quizQuestions[n].choices[1];
+    answerBtn3.textContent = quizQuestions[n].choices[2];
+    answerBtn4.textContent = quizQuestions[n].choices[3];
+    questionNumber = n;
+}
+
 function startQuiz() {
+    showQuestion(questionNumber);
     remainingTime();
+    questionNumber = 0;
 }
 
 startBtn.addEventListener("click", startQuiz);
