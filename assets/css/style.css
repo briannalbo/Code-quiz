@@ -1,5 +1,6 @@
-* {
+body {
     background-color: peachpuff;
+
 }
 
 header {
@@ -51,6 +52,10 @@ button:hover {
     background-color: paleturquoise;
 }
 
+.choices-button {
+    width: 260px;
+}
+
 section{
     border: 3px black;
 }
@@ -61,4 +66,20 @@ section{
     background-color: white;
     margin-top: 20px;
     border: 2px solid black;
+    position: relative;
+}
+
+#quiz-area div{
+    width: 600px;
+    height: 380px;
+    background-color: white;
+}
+
+#quiz-area h2{
+    padding: 20px;
+    width: 580px;
+    height: 80px;
+    position: relative;
+    font-display: flex;
+    
 }
