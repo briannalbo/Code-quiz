@@ -17,17 +17,21 @@ header h1{
 
 
  header div {
-    width: 200px;
-    height: 30px;
+    width: 140px;
+    height: 26px;
     float: right;
     font-size: 20px;
     display: flex;
     justify-content: baseline;
+    background-color: white;
+    text-align: center;
+    border: 2px solid black;
+    font-family: Arial, Helvetica, sans-serif;
     
  }
 
  span{
-    padding-left: 20px;
+    padding-left: 5px;
  }
 
 button{
@@ -43,7 +47,23 @@ button:hover {
     background-color: paleturquoise;
 }
 
+#ask-question {
+    display: none;
+}
+
+#time-section {
+   
+}
+
+#intro{
+    text-align: center;
+}
+
+ul{
+    display: none;
+}
 .choices-button {
+    
     width: 260px;
 }
 
@@ -84,4 +104,9 @@ section{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     
+}
+
+#quiz-area p{
+    text-align: center;
+    font-size: 20px;
 }

@@ -10,7 +10,7 @@
     <body>
         <header>
             <h1>Welcome to the coding Quiz</h1>
-            <div>Time Left:  <span id="timeleft"> </span></div>
+            <div id ="time-section">  <span id="timeleft">Time Left: 90 s</span></div>
             
         </header>
         <button id="start-button">Start Quiz!</button>
@@ -19,6 +19,11 @@
         <section id="quiz-area">
             
             <div>
+            
+            <h2 id = "intro"> Welcome! You will have 90 seconds to complete 8 questions. Incorrect answers will result in a 10 second penalty. Good luck! 
+                Press 'Start Quiz' to begin.
+            </h2>
+            
             <h2 id ="ask-question"> ansk question</h2>
             <ul id ="choices">
                 <li><button class ="choices-button" id="answer-btn1" value="a">Answer1</button></li>
@@ -26,8 +31,9 @@
                 <li><button class ="choices-button" id="answer-btn3" value="c">Answer3</button></li>
                 <li><button class ="choices-button" id="answer-btn4" value="d">Answer4</button></li>
             </ul>
+            <p id ="note"></p>
         </div>
-        <article id="check-answer"> answer</article>
+        <article id="check-answer"> </article>
     </section>
         <footer>
 

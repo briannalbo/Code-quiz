@@ -4,14 +4,19 @@ console.log(firstCommit + " welcome");
 
 var startBtn = document.querySelector("#start-button");
 var questionNumber = 0;
+var intro = document.querySelector("#intro");
+var introduct = document.querySelector("introduct");
 var askQuestion = document.querySelector("#ask-question");
 var answerBtn1 = document.querySelector("#answer-btn1");
 var answerBtn2 = document.querySelector("#answer-btn2");
 var answerBtn3 = document.querySelector("#answer-btn3");
 var answerBtn4 = document.querySelector("#answer-btn4");
 var answerButtons = document.querySelector("#choices");
+var finalNote = document.querySelector("#note");
 var quiz = document.querySelector("#quiz-area");
 var answerCheck = document.querySelector("#check-answer");
+var countdown = document.querySelector("#time-section");
+var score = 0;
 
 var quizQuestions = [
     {
@@ -59,6 +64,9 @@ var quizQuestions = [
 function startQuiz() {
     showQuestion(questionNumber);
     remainingTime();
+    answerButtons.style.display = "block";
+    intro.style.display = "none"; 
+    askQuestion.style.display = "block";
     
 }
 
@@ -69,11 +77,12 @@ function remainingTime() {
     var timer = setInterval(function () {
 
         secondsLeft--;
-        clock.textContent = secondsLeft + " s";
+        clock.textContent = "Time left: " + secondsLeft + " s";
 
         if (secondsLeft <= 0){
             clearInterval(clock);
             clock.textContent = "Time is up!";
+            gameOver();
         }
         else {
             
@@ -102,7 +111,7 @@ function showQuestion(questionNumber) {
             
     }
     else {
-        alert("error");
+        gameOver();
     }
   
 }
@@ -112,12 +121,15 @@ function userAnswer(event) {
 
     if (quizQuestions[questionNumber].answer == event.target.value) {
         answerCheck.textContent = "Correct!"; 
+        score = score + 1;
     }
     else{
         secondsLeft = secondsLeft - 10;
         answerCheck.textContent = "incorrect";
     }
+    
 }
+
 
 
 
@@ -127,7 +139,11 @@ var questionCount = 0;
 
 
 function gameOver() {
-quiz.style.display = "none";
+askQuestion.textContent = "Thank you for taking the Coding Quiz!";
+countdown.textContent = "";
+answerCheck.style.display = "none";
+answerButtons.style.display = "none";
+finalNote.textContent = "You answered " + score + "/8 correct!";
 }
 
 startBtn.addEventListener("click", startQuiz);
