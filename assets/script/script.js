@@ -11,48 +11,48 @@ var answerBtn3 = document.querySelector("#answer-btn3");
 var answerBtn4 = document.querySelector("#answer-btn4");
 var answerButtons = document.querySelector("#choices");
 var quiz = document.querySelector("#quiz-area");
-var answerCheck = document.querySelector("#answer-check");
+var answerCheck = document.querySelector("#check-answer");
 
 var quizQuestions = [
     {
         quests: ["Which part of the HTML is the JavaScript linked in? "],
         choices: ["a. Head", "b. Body", "c. Footer", "d. Nav"],
-        answer: "b. Body"
+        answer: ["b. Body"]
     },
     {
         quests: ["Which of the following is not a commonly used data type?"],
         choices: ["a. Booleans", "b. Strings", "c. Numbers", "d. Element ID"],
-        answer: "d. Element ID"
+        answer: ["d. Element ID"]
     },
     {
         quests: ["What is the first index in an array?"],
         choices: ["a. 1", "b. 0", "c. -1", "d. 10"],
-        answer: "b. 0"
+        answer: ["b. 0"]
     },
     {
         quests: ["Which operator is used to assign a value to a variable in JavaScript?"],
         choices: ["a. #", "b. =", "c. ^ ", "d. * "],
-        answer: "b. = "
+        answer: ["b. = "]
     },
     {
         quests: ["How do you call a function called 'myFunction'?"],
         choices: ["a. use = myFunction", "b. function == myFunction", "c. myFunction()", "d. call myFunction()"],
-        answer: "c. myFunction()"
+        answer: ["c. myFunction()"]
     },
     {
         quests: ["How can you add a comment in JavaScript?"],
         choices: ["a. //This is a comment", "b. <!--This is a comment-->", "c. 'This is a comment'", "d. **This is a comment"],
-        answer: "a. //This is a comment"
+        answer: ["a. //This is a comment"]
     },
     {
         quests: ["Which event occurs when the user clicks on an HTML element?"],
         choices: ["a. touch", "b. onMouse", "c. onTouch", "d. onclick"],
-        answer: "d. onclick"
+        answer: ["d. onclick"]
     },
     {
         quests: ["How do you declare a variable in JavaScript?"],
         choices: ["a. v e", "b. v my", "c. va", "d. v"],
-        answer: "c. vaVariable"
+        answer: ["c. vaVariable"]
     }
 ];
 
@@ -98,13 +98,25 @@ function showQuestion(questionNumber) {
         if (questionNumber < quizQuestions.length - 1) {
             questionNumber++;
             showQuestion(questionNumber);
+            userAnswer(event);
             
     }
     else {
         alert("error");
     }
+  
+}
 
+function userAnswer(event) {
+    // event.preventDefault();
 
+    if (quizQuestions[questionNumber].answer == event.target.value) {
+        answerCheck.textContent = "Correct!"; 
+    }
+    else{
+        secondsLeft = secondsLeft - 10;
+        answerCheck.textContent = "incorrect";
+    }
 }
 
 
