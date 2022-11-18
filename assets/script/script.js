@@ -118,6 +118,11 @@ function showQuestion(questionNumber) {
 
 function userAnswer(event) {
     // event.preventDefault();
+    answerCheck.style.display = "block";
+    setTimeout(function () {
+        answerCheck.style.display = 'none';
+    }, 1000);
+   
     console.log("quizQuestions " + quizQuestions[questionNumber].answer);
     console.log("button-clicked " + event.target.value)
     if (quizQuestions[questionNumber].answer == event.target.value) {
