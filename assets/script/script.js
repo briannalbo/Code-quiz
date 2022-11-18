@@ -118,12 +118,15 @@ function showQuestion(questionNumber) {
 
 function userAnswer(event) {
     // event.preventDefault();
-
+    console.log("quizQuestions " + quizQuestions[questionNumber].answer);
+    console.log("button-clicked " + event.target.value)
     if (quizQuestions[questionNumber].answer == event.target.value) {
         answerCheck.textContent = "Correct!"; 
         score = score + 1;
     }
+
     else{
+
         secondsLeft = secondsLeft - 10;
         answerCheck.textContent = "incorrect";
     }
