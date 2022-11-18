@@ -22,17 +22,17 @@ var quizQuestions = [
     {
         quests: ["Which part of the HTML is the JavaScript linked in? "],
         choices: ["a. Head", "b. Body", "c. Footer", "d. Nav"],
-        answer: ["b. Body"]
+        answer: ["b"]
     },
     {
         quests: ["Which of the following is not a commonly used data type?"],
         choices: ["a. Booleans", "b. Strings", "c. Numbers", "d. Element ID"],
-        answer: ["d. Element ID"]
+        answer: ["d"]
     },
     {
         quests: ["What is the first index in an array?"],
         choices: ["a. 1", "b. 0", "c. -1", "d. 10"],
-        answer: ["b. 0"]
+        answer: ["b"]
     },
     {
         quests: ["Which operator is used to assign a value to a variable in JavaScript?"],
@@ -105,9 +105,9 @@ function showQuestion(questionNumber) {
 
     answerButtons.onclick = () => {
         if (questionNumber < quizQuestions.length - 1) {
+            userAnswer(event);
             questionNumber++;
             showQuestion(questionNumber);
-            userAnswer(event);
             
     }
     else {
