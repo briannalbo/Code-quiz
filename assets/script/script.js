@@ -37,27 +37,27 @@ var quizQuestions = [
     {
         quests: ["Which operator is used to assign a value to a variable in JavaScript?"],
         choices: ["a. #", "b. =", "c. ^ ", "d. * "],
-        answer: ["b. = "]
+        answer: ["b"]
     },
     {
         quests: ["How do you call a function called 'myFunction'?"],
         choices: ["a. use = myFunction", "b. function == myFunction", "c. myFunction()", "d. call myFunction()"],
-        answer: ["c. myFunction()"]
+        answer: ["c"]
     },
     {
         quests: ["How can you add a comment in JavaScript?"],
         choices: ["a. //This is a comment", "b. <!--This is a comment-->", "c. 'This is a comment'", "d. **This is a comment"],
-        answer: ["a. //This is a comment"]
+        answer: ["a"]
     },
     {
         quests: ["Which event occurs when the user clicks on an HTML element?"],
         choices: ["a. touch", "b. onMouse", "c. onTouch", "d. onclick"],
-        answer: ["d. onclick"]
+        answer: ["d"]
     },
     {
         quests: ["How do you declare a variable in JavaScript?"],
         choices: ["a. v e", "b. v my", "c. va", "d. v"],
-        answer: ["c. vaVariable"]
+        answer: ["c"]
     }
 ];
 
