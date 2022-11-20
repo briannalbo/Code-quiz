@@ -17,6 +17,8 @@ var quiz = document.querySelector("#quiz-area");
 var answerCheck = document.querySelector("#check-answer");
 var countdown = document.querySelector("#time-section");
 var score = 0;
+var userInitial = document.querySelector("#initials");
+var submitBtn = document.querySelector("#submit");
 
 var quizQuestions = [
     {
@@ -154,5 +156,26 @@ answerButtons.style.display = "none";
 finalNote.textContent = "You answered " + score + "/8 correct!";
 }
 
+function getScore () {
+
+
+function addItem (n) {
+    var addedList = getScore();
+    addedList.push(n);
+    localStorage.setItem("ScoreList", JSON.stringify(addedList));
+};
+
+function saveScore () {
+    var scoreItem ={
+        user: userInitial.value,
+        score: score
+    }
+    var saved = localStorage.getItem("scoreItem");
+    console.log(saved);
+    addItem(scoreItem);
+    renderScore();
+}
+
+submitBtn.addEventListener("click", saveScore)
 startBtn.addEventListener("click", startQuiz);
 answerButtons.addEventListener("click", showQuestion(questionNumber) );
