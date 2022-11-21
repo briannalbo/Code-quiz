@@ -19,6 +19,7 @@ var countdown = document.querySelector("#time-section");
 var score = 0;
 var userInitial = document.querySelector("#initials");
 var submitBtn = document.querySelector("#submit");
+var scoreBoard = document.querySelector("#scores");
 
 var quizQuestions = [
     {
@@ -125,8 +126,7 @@ function userAnswer(event) {
         answerCheck.style.display = 'none';
     }, 1000);
    
-    console.log("quizQuestions " + quizQuestions[questionNumber].answer);
-    console.log("button-clicked " + event.target.value)
+  
     if (quizQuestions[questionNumber].answer == event.target.value) {
         answerCheck.textContent = "Correct!"; 
         score = score + 1;
@@ -149,33 +149,48 @@ var questionCount = 0;
 
 
 function gameOver() {
-askQuestion.textContent = "Thank you for taking the Coding Quiz!";
+askQuestion.style.display = "none";
 countdown.textContent = "";
 answerCheck.style.display = "none";
 answerButtons.style.display = "none";
 finalNote.textContent = "You answered " + score + "/8 correct!";
 }
 
-function getScore () {
+submitBtn.addEventListener("click", function () {
+    var initials = userInitial.value;
 
+    if (initials === null) {
+        
+        console.log("No value entered!");
 
-function addItem (n) {
-    var addedList = getScore();
-    addedList.push(n);
-    localStorage.setItem("ScoreList", JSON.stringify(addedList));
-};
-
-function saveScore () {
-    var scoreItem ={
-        user: userInitial.value,
-        score: score
+    } else {
+        var finalScore = {
+            initials: initials,
+            score: score
+        }
+        console.log(finalScore);
+        var allScores = localStorage.getItem("allScores");
+        if (allScores === null) {
+            allScores = [];
+        } else {
+            allScores = JSON.parse(allScores);
+        }
+        allScores.push(finalScore);
+        var newScore = JSON.stringify(allScores);
+        localStorage.setItem("allScores", newScore);
+        // Travels to final page
+        // window.location.replace("");
+    
+        askQuestion.textContent = allScores.value + "hjhj";
+        
+        
+        
+        
     }
-    var saved = localStorage.getItem("scoreItem");
-    console.log(saved);
-    addItem(scoreItem);
-    renderScore();
-}
+});
 
-submitBtn.addEventListener("click", saveScore)
+
+
+
 startBtn.addEventListener("click", startQuiz);
 answerButtons.addEventListener("click", showQuestion(questionNumber) );
