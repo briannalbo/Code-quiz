@@ -179,7 +179,7 @@ submitBtn.addEventListener("click", function () {
         var newScore = JSON.stringify(allScores);
         localStorage.setItem("allScores", newScore);
         // Travels to final page
-        // window.location.replace("");
+        window.location.replace("./score.html");
     
         askQuestion.textContent = allScores.value + "hjhj";
         
