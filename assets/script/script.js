@@ -109,24 +109,7 @@ function showQuestion(questionNumber) {
     answerBtn4.textContent = quizQuestions[questionNumber].choices[3];
     
 }
-// when answer buttons are click moves to display next question/answer choices in object
-    answerButtons.onclick = () => {
-        if (questionNumber < quizQuestions.length - 1) {
-            userAnswer(event);
-            questionNumber++;
-            // userAnswer(event);
-            showQuestion(questionNumber);
-            // userAnswer(event);
-            
-    }
- 
-    
-    // else {
-        
-        // gameOver();
-    // }
-  
-}
+
 
 answerButtons.onclick = () => {
    
@@ -139,13 +122,11 @@ answerButtons.onclick = () => {
     else if (questionNumber == 7){
         userAnswer(event);
         setTimeout(function () {
-            // userAnswer(event);
             gameOver();
-            // clearInterval(timer);
         }, 500);
        
        
-        // gameOver();
+    
     
 }
     else {
@@ -210,12 +191,17 @@ document.getElementById("note").style.fontSize = "40px";
 // when user clicks submit their initials and score are saved to local storage
 submitBtn.addEventListener("click", function () {
     var initials = userInitial.value;
+    var blank = "";
 
     if (initials === null) {
         
         console.log("No value entered!");
 
-    } else {
+
+    } 
+    
+
+    else {
         // defines format of object to be saved in localstorage
         var finalScore = {
             initials: initials,
