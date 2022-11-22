@@ -57,3 +57,17 @@ footer{
     width: 180px;
     
 }
+
+@media only screen and (max-width:390px) {
+    body{
+        align-items: center;
+        width: 390px;
+        height: 800px;
+    }
+    #scorelist{
+        justify-content: center;
+        width: 380px;
+    }
+
+
+}
