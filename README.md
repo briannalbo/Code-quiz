@@ -28,6 +28,8 @@ Users also have the option to clear the scoreboard. This quiz was created using 
 series of javaScript functions triggered by how the user interacts with the page.
 For more information on how the quiz functions please refer to the notes 
 within the code files.
+## Deployed Page
+https://briannalbo.github.io/Code-quiz/
 ## <p align="center">Opening Page<p align="center">
 ![quizpic.png](https://github.com/briannalbo/Code-Quiz/blob/main/quizpic.png)
 ## <p align="center">Displays Final Score<p align="center">
