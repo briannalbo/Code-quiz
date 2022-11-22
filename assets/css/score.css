@@ -68,6 +68,9 @@ footer{
         justify-content: center;
         width: 380px;
     }
+    #scorelist h2{
+        width:380px;
+    }
 
 
 }
