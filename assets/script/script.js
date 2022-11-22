@@ -81,10 +81,10 @@ var secondsLeft = 90;
 // this tells the timer how to function; timer starts, displays countdown on page
 function remainingTime() {
     var timer = setInterval(function () {
-
+// displays countdown on page
         secondsLeft--;
         clock.textContent = "Time left: " + secondsLeft + " s";
-
+// when timer reaches zero; quiz ends
         if (secondsLeft <= 0){
             clearInterval(clock);
             clock.textContent = "Time is up!";
@@ -98,7 +98,6 @@ function remainingTime() {
 }
 
 
-var questionNumber = 0;
 // assigns questions in object to display on page
 function showQuestion(questionNumber) {
    
@@ -110,23 +109,23 @@ function showQuestion(questionNumber) {
     
 }
 
-
+// this below function deals with transitioning to next questions and ending quiz after last question is answered
 answerButtons.onclick = () => {
    
+    // when user clicks the answer button page transitions to next question
     if (questionNumber < quizQuestions.length - 1){
         userAnswer(event);
         questionNumber++;
         showQuestion(questionNumber);
         
     }
+    // when user answers last question page will display if their answer was wrong/right then end quiz
     else if (questionNumber == 7){
         userAnswer(event);
         setTimeout(function () {
             gameOver();
         }, 500);
-       
-       
-    
+          
     
 }
     else {
@@ -160,17 +159,10 @@ function userAnswer(event) {
     else{
 
         secondsLeft = secondsLeft - 10;
-        answerCheck.textContent = "incorrect";
+        answerCheck.textContent = "Incorrect!";
     }
     
 }
-
-
-
-
-
-var questionCount = 0;
-
 
 // ends quiz; manipulates styling to transition to the user seeing their final score
 // prompts user to enter their initials then click a submit button
@@ -191,16 +183,12 @@ document.getElementById("note").style.fontSize = "40px";
 // when user clicks submit their initials and score are saved to local storage
 submitBtn.addEventListener("click", function () {
     var initials = userInitial.value;
-    var blank = "";
 
     if (initials === null) {
         
         console.log("No value entered!");
-
-
     } 
     
-
     else {
         // defines format of object to be saved in localstorage
         var finalScore = {
@@ -223,9 +211,5 @@ submitBtn.addEventListener("click", function () {
     }
 });
 
-
-
 // when user clicks the start button the startquiz function displays the quiz and starts the timer
 startBtn.addEventListener("click", startQuiz);
-
-// answerButtons.addEventListener("click", showQuestion(questionNumber) );
