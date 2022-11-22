@@ -1,6 +1,7 @@
 // first i defined all of the following variables; a lot of queryselectors used to manipulated html and css via javascript
 var startBtn = document.querySelector("#start-button");
 var intro = document.querySelector("#intro");
+var heading = document.querySelector("#heading")
 var introduct = document.querySelector("introduct");
 var askQuestion = document.querySelector("#ask-question");
 var answerBtn1 = document.querySelector("#answer-btn1");
@@ -113,16 +114,45 @@ function showQuestion(questionNumber) {
         if (questionNumber < quizQuestions.length - 1) {
             userAnswer(event);
             questionNumber++;
+            // userAnswer(event);
             showQuestion(questionNumber);
+            // userAnswer(event);
             
     }
  
     
-    else {
+    // else {
         
+        // gameOver();
+    // }
+  
+}
+
+answerButtons.onclick = () => {
+   
+    if (questionNumber < quizQuestions.length - 1){
+        userAnswer(event);
+        questionNumber++;
+        showQuestion(questionNumber);
+        
+    }
+    else if (questionNumber == 7){
+        userAnswer(event);
+        setTimeout(function () {
+            // userAnswer(event);
+            gameOver();
+            // clearInterval(timer);
+        }, 500);
+       
+       
+        // gameOver();
+    
+}
+    else {
         gameOver();
     }
-  
+
+    
 }
 
 
@@ -164,6 +194,9 @@ var questionCount = 0;
 // ends quiz; manipulates styling to transition to the user seeing their final score
 // prompts user to enter their initials then click a submit button
 function gameOver() {
+heading.textContent = "Thanks for taking the Code Quiz!";
+document.getElementById("heading").style.paddingBottom = "60px";
+startBtn.style.display = "none";
 askQuestion.style.display = "none";
 timeBox.style.display = "none";
 countdown.textContent = "";
@@ -171,6 +204,7 @@ answerCheck.style.display = "none";
 answerButtons.style.display = "none";
 scoreBoard.style.display = "block";
 finalNote.textContent = "You answered " + score + "/8 correct!";
+document.getElementById("note").style.fontSize = "40px";
 }
 
 // when user clicks submit their initials and score are saved to local storage
