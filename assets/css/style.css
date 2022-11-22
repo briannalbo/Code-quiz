@@ -139,11 +139,12 @@ section{
     }
 
     #quiz-area div {
-        width: 400px;
+        justify-content: center;
+        width: 380px;
     }
     
     #quiz-area h2{
-        
+        justify-content: center;
         width: 380px;
         flex-wrap: wrap;
     }
