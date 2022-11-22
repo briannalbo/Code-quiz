@@ -15,15 +15,15 @@
         </header>
         <button id="start-button">Start Quiz!</button>
 
-
+<!-- this is the main section where the quiz will be displayed -->
         <section id="quiz-area">
             
             <div>
-            
+            <!-- this gives the user an overview of the quiz -->
             <h2 id = "intro"> Welcome! You will have 90 seconds to complete 8 questions. Incorrect answers will result in a 10 second penalty. Good luck! 
                 Press 'Start Quiz' to begin.
             </h2>
-            
+            <!-- the section below provides the classes and ids that will link the questions in the javascript file -->
             <h2 id ="ask-question"></h2>
             <ul id ="choices">
                 <li><button class ="choices-button" id="answer-btn1" value="a">Answer1</button></li>
@@ -33,18 +33,20 @@
             </ul>
             <p id ="note"></p>
         </div>
+        <!-- this section will be displayed once the user completes the quiz -->
         <div id = "scores">
-            <h2>Your Scores!</h2>
+            
             <p>Enter your initials:<input id = "initials"></p>
-            <button id = "submit">Submit</button>
+          <span>  <button id = "submit">Submit</button></span>
 
         </div>
-        
+        <!-- the check answer id will display to user whether their answer was correct/incorrect -->
         <article id="check-answer"> </article>
     </section>
         <footer>
 
         </footer>
+        <!-- this is where the javascript file is linked -->
         <script src="assets/script/script.js"></script>
     </body>
     </html>

@@ -1,9 +1,5 @@
-var firstCommit;
-firstCommit = "Coders";
-console.log(firstCommit + " welcome");
-
+// first i defined all of the following variables; a lot of queryselectors used to manipulated html and css via javascript
 var startBtn = document.querySelector("#start-button");
-var questionNumber = 0;
 var intro = document.querySelector("#intro");
 var introduct = document.querySelector("introduct");
 var askQuestion = document.querySelector("#ask-question");
@@ -14,13 +10,16 @@ var answerBtn4 = document.querySelector("#answer-btn4");
 var answerButtons = document.querySelector("#choices");
 var finalNote = document.querySelector("#note");
 var quiz = document.querySelector("#quiz-area");
+var timeBox = document.querySelector("#time-section");
 var answerCheck = document.querySelector("#check-answer");
 var countdown = document.querySelector("#time-section");
 var score = 0;
+var questionNumber = 0;
 var userInitial = document.querySelector("#initials");
 var submitBtn = document.querySelector("#submit");
 var scoreBoard = document.querySelector("#scores");
 
+// this is the object of the 8 questions in the quiz
 var quizQuestions = [
     {
         quests: ["Which part of the HTML is the JavaScript linked in? "],
@@ -59,11 +58,12 @@ var quizQuestions = [
     },
     {
         quests: ["How do you declare a variable in JavaScript?"],
-        choices: ["a. v e", "b. v my", "c. va", "d. v"],
+        choices: ["a. variable = apple;", "b. v * apple", "c. var apple;", "d. v is apple"],
         answer: ["c"]
     }
 ];
 
+// this function starts the quiz timer and displays the first multiple choice question
 function startQuiz() {
     showQuestion(questionNumber);
     remainingTime();
@@ -73,9 +73,11 @@ function startQuiz() {
     
 }
 
+// sets variables needed for the timer to function
 var clock = document.getElementById("timeleft");
 var secondsLeft = 90;
 
+// this tells the timer how to function; timer starts, displays countdown on page
 function remainingTime() {
     var timer = setInterval(function () {
 
@@ -89,13 +91,14 @@ function remainingTime() {
         }
         else {
             
-
         }
     
 }, 1000);
 }
-var questionNumber = 0;
 
+
+var questionNumber = 0;
+// assigns questions in object to display on page
 function showQuestion(questionNumber) {
    
     askQuestion.textContent = quizQuestions[questionNumber].quests[0];
@@ -105,7 +108,7 @@ function showQuestion(questionNumber) {
     answerBtn4.textContent = quizQuestions[questionNumber].choices[3];
     
 }
-
+// when answer buttons are click moves to display next question/answer choices in object
     answerButtons.onclick = () => {
         if (questionNumber < quizQuestions.length - 1) {
             userAnswer(event);
@@ -113,25 +116,36 @@ function showQuestion(questionNumber) {
             showQuestion(questionNumber);
             
     }
+ 
+    
     else {
+        
         gameOver();
     }
   
 }
 
+
+// checks in the users answer matches the correct answer assigned in the quiz questions object
+// also displays 'correct' or 'incorrect' to user
 function userAnswer(event) {
-    // event.preventDefault();
+
+    // sets a time limit on how long 'correct' or 'incorrect' display on page
     answerCheck.style.display = "block";
     setTimeout(function () {
         answerCheck.style.display = 'none';
-    }, 1000);
+    }, 600);
    
-  
+//   evaluates if user answer is correct and displays 'correct'
     if (quizQuestions[questionNumber].answer == event.target.value) {
         answerCheck.textContent = "Correct!"; 
         score = score + 1;
-    }
+        console.log(quizQuestions[questionNumber].answer);
+        console.log(event.target.value);
 
+    }
+   
+    // if users answer is incorrect; subtracts 10 seconds from timer and displays 'incorrect' on page
     else{
 
         secondsLeft = secondsLeft - 10;
@@ -147,15 +161,19 @@ function userAnswer(event) {
 var questionCount = 0;
 
 
-
+// ends quiz; manipulates styling to transition to the user seeing their final score
+// prompts user to enter their initials then click a submit button
 function gameOver() {
 askQuestion.style.display = "none";
+timeBox.style.display = "none";
 countdown.textContent = "";
 answerCheck.style.display = "none";
 answerButtons.style.display = "none";
+scoreBoard.style.display = "block";
 finalNote.textContent = "You answered " + score + "/8 correct!";
 }
 
+// when user clicks submit their initials and score are saved to local storage
 submitBtn.addEventListener("click", function () {
     var initials = userInitial.value;
 
@@ -164,6 +182,7 @@ submitBtn.addEventListener("click", function () {
         console.log("No value entered!");
 
     } else {
+        // defines format of object to be saved in localstorage
         var finalScore = {
             initials: initials,
             score: score
@@ -178,19 +197,15 @@ submitBtn.addEventListener("click", function () {
         allScores.push(finalScore);
         var newScore = JSON.stringify(allScores);
         localStorage.setItem("allScores", newScore);
-        // Travels to final page
+        // Travels to another page where the users initials and scores will be displayed in a list
         window.location.replace("./score.html");
-    
-        askQuestion.textContent = allScores.value + "hjhj";
-        
-        
-        
         
     }
 });
 
 
 
-
+// when user clicks the start button the startquiz function displays the quiz and starts the timer
 startBtn.addEventListener("click", startQuiz);
-answerButtons.addEventListener("click", showQuestion(questionNumber) );
+
+// answerButtons.addEventListener("click", showQuestion(questionNumber) );

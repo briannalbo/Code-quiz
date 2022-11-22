@@ -52,9 +52,7 @@ button:hover {
     display: none;
 }
 
-#time-section {
-   
-}
+
 
 #intro{
     text-align: center;
@@ -114,9 +112,17 @@ section{
 
 
 
-
+#scores {
+    display: none;
+}
 
 #initials{
     width: 40px;
     
+}
+
+#scores span  {
+    flex-direction: column;
+    text-align: center;
+    padding-left: 230px;
 }
